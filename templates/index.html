@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Denúncia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        // Função para capturar localização
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById("localizacao").value = `${latitude}, ${longitude}`;
+                }, function (error) {
+                    alert("Erro ao obter a localização. Certifique-se de que o GPS está ativado.");
+                });
+            } else {
+                alert("Geolocalização não é suportada pelo navegador.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="d-flex justify-content-between align-items-center p-3 bg-primary text-white">
+        <div class="d-flex align-items-center">
+            <!-- Área para logomarca -->
+            <!-- <img src="/static/images/logo.png" alt="Logomarca" class="logo"> -->
+            <h1 class="ms-3 m-0">Recicla+</h1>
+        </div>
+        <a href="http://127.0.0.1:5001" class="btn btn-light btn-sm">Fazer Login</a>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5">
+        <form action="/denunciar" method="POST" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria do Lixo:</label>
+                <select class="form-select" id="categoria" name="categoria" required>
+                    <option value="Orgânico">Orgânico</option>
+                    <option value="Móveis">Móveis</option>
+                    <option value="Sólidos">Sólidos</option>
+                    <option value="Eletrônicos">Eletrônicos</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="localizacao" class="form-label">Localização:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="localizacao" name="localizacao" readonly>
+                    <button type="button" class="btn btn-primary" onclick="getLocation()">Obter Localização Atual</button>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="imagem" class="form-label">Imagem do Local:</label>
+                <input type="file" class="form-control" id="imagem" name="imagem">
+            </div>
+            <button type="submit" class="btn btn-success w-100">Enviar Denúncia</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="m-0">Se você é um coletor de lixo, faça o <a href="http://127.0.0.1:5001" class="text-light">login acima</a>.</p>
+    </footer>
+</body>
+</html>
