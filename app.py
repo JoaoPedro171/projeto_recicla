@@ -61,7 +61,7 @@ def login_post():
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
-        return redirect('http://127.0.0.1:5003')
+        return redirect('https://projeto-recicla-1.onrender.com')
     flash('Por favor, faça login primeiro.', 'warning')
     return redirect(url_for('login'))
 
