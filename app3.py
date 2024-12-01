@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Configuração do MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost/database_name'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:JP26102%21@database-1.cv4qyig4e3ik.us-east-2.rds.amazonaws.com:3306/database_1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secret-key'
 

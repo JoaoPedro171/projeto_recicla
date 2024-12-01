@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Configuração do MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost/database_name'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:JP26102%21@database-1.cv4qyig4e3ik.us-east-2.rds.amazonaws.com:3306/database_1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -48,10 +48,10 @@ def login_post():
         return redirect(url_for('login'))
 
     # Verifica se o e-mail está liberado para acessar
-    access = AccessControl.query.filter_by(email=email).first()
-    if not access or not access.is_allowed:
-        session['show_popup'] = {'type': 'danger', 'message': 'Acesso negado. Contate o administrador.'}
-        return redirect(url_for('login'))
+    # access = AccessControl.query.filter_by(email=email).first()
+    # if not access or not access.is_allowed:
+    #     session['show_popup'] = {'type': 'danger', 'message': 'Acesso negado. Contate o administrador.'}
+    #     return redirect(url_for('login'))
 
     # Login bem-sucedido
     session['user_id'] = user.id
@@ -61,7 +61,7 @@ def login_post():
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
-        return redirect('https://projeto-recicla-1.onrender.com')
+        return redirect('http://127.0.0.1:5003/')
     flash('Por favor, faça login primeiro.', 'warning')
     return redirect(url_for('login'))
 
