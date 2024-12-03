@@ -14,7 +14,7 @@
         </div>
         <!-- Login Form -->
         <div class="form-container">
-            <h1>Área do Cliente</h1>
+            <h1>Login</h1>
             <form action="{{ url_for('login_post') }}" method="POST">
                 <div class="form-group">
                     <label for="email">E-mail</label>
@@ -24,7 +24,9 @@
                     <label for="password">Senha</label>
                     <input type="password" id="password" name="password" required>
                 </div>
+                <br>
                 <button type="submit">Entrar</button>
+                <br>
             </form>
             <p>Não tem uma conta? <a href="{{ url_for('register') }}">Registre-se</a></p>
         </div>

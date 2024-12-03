@@ -1,7 +1,8 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background: url('../images/fundo3.png');
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
@@ -46,19 +47,27 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombreamento leve */
+    transition: box-shadow 0.3s ease; /* Suaviza a transição */
+}
+
+input:focus {
+    border-color: #303f9f; /* Muda a cor da borda ao focar */
+    box-shadow: 0 4px 10px rgba(48, 63, 159, 0.2); /* Sombreamento mais intenso ao focar */
+    outline: none; /* Remove a borda padrão do navegador */
 }
 
 button {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     background-color: #303f9f;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
 }

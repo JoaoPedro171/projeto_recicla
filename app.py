@@ -47,12 +47,6 @@ def login_post():
         session['show_popup'] = {'type': 'danger', 'message': 'Senha incorreta. Tente novamente.'}
         return redirect(url_for('login'))
 
-    # Verifica se o e-mail está liberado para acessar
-    # access = AccessControl.query.filter_by(email=email).first()
-    # if not access or not access.is_allowed:
-    #     session['show_popup'] = {'type': 'danger', 'message': 'Acesso negado. Contate o administrador.'}
-    #     return redirect(url_for('login'))
-
     # Login bem-sucedido
     session['user_id'] = user.id
     session['show_popup'] = {'type': 'success', 'message': 'Login bem-sucedido!'}
@@ -61,15 +55,15 @@ def login_post():
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
-        return redirect('https://projeto-recicla-1.onrender.com')
+        return redirect('https://projeto-recicla-app2.onrender.com/')
     flash('Por favor, faça login primeiro.', 'warning')
     return redirect(url_for('login'))
 
-@app.route('/logout')
-def logout():
-    session.pop('user_id', None)
-    session['show_popup'] = {'type': 'info', 'message': 'Logout realizado com sucesso.'}
-    return redirect(url_for('login'))
+# @app.route('/logout')
+# def logout():
+#     session.pop('user_id', None)
+#     session['show_popup'] = {'type': 'info', 'message': 'Logout realizado com sucesso.'}
+#     return redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -92,7 +86,7 @@ def register():
         db.session.add(access)
 
         db.session.commit()
-        session['show_popup'] = {'type': 'success', 'message': 'Registro realizado com sucesso! Aguarde liberação do administrador.'}
+        session['show_popup'] = {'type': 'success', 'message': 'Registro realizado com sucesso!'}
         return redirect(url_for('register'))
 
     popup = session.pop('show_popup', None)

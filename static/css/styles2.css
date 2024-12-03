@@ -12,8 +12,8 @@ h1 {
     text-align: center;
     color: #343a40;
     margin-bottom: 20px;
+    margin-left: 38%;
     padding: 10px;
-    border-bottom: 2px solid #007bff;
 }
 
 /* Mapa */
@@ -55,8 +55,9 @@ h1 {
 button, a.btn-primary {
     font-size: 0.9rem;
     font-weight: bold;
+    width: 150px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 10px 20px;
     margin-right: 10px;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -70,6 +71,14 @@ button:hover, a.btn-primary:hover {
 button.btn-success {
     background-color: #28a745;
     color: white;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button.btn-success:hover {
