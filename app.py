@@ -47,11 +47,6 @@ def login_post():
         session['show_popup'] = {'type': 'danger', 'message': 'Senha incorreta. Tente novamente.'}
         return redirect(url_for('login'))
 
-    # Login bem-sucedido
-    session['user_id'] = user.id
-    session['show_popup'] = {'type': 'success', 'message': 'Login bem-sucedido!'}
-    return redirect(url_for('dashboard'))
-
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
