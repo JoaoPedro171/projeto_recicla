@@ -14,6 +14,7 @@ header {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
+    flex-wrap: wrap; /* Adicionado para lidar com telas menores */
 }
 
 /* Título no Header */
@@ -23,9 +24,11 @@ header h1 {
     color: white;
     display: flex;
     align-items: center;
+    text-align: center; /* Centraliza o texto em telas pequenas */
+    flex-grow: 1; /* Permite ocupar o espaço necessário */
 }
 
-/* Botão de login */
+/* Botões no Header */
 header a {
     font-size: 0.9rem;
     padding: 5px 15px;
@@ -36,6 +39,7 @@ header a {
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    margin: 5px; /* Espaçamento entre botões */
 }
 
 header a:hover {
@@ -45,17 +49,20 @@ header a:hover {
 
 /* Container principal */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 100%;
+    margin-top: 0% !important;
+    padding: 15px; /* Reduz o espaçamento em telas menores */
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
+.mt-4{
+    margin-top: 0% !important;
+}
 
 /* Títulos e labels */
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #343a40;
     text-align: center;
     margin-top: 10px;
@@ -72,8 +79,8 @@ h1 {
     border-radius: 5px;
     border: 1px solid #ced4da;
     padding: 10px;
-    font-size: 0.9rem;
-        
+    font-size: 1rem;
+    width: 100%; /* Garantir que ocupe o espaço total */
 }
 
 textarea.form-control {
@@ -88,6 +95,8 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    width: 100%; /* Botões maiores em dispositivos móveis */
+    margin-top: 10px; /* Espaçamento entre botões */
 }
 
 button.btn-primary {
@@ -99,6 +108,11 @@ button.btn-primary:hover {
     background-color: #0056b3;
 }
 
+#header-bt {
+    background-color: #3e9aff;
+    margin-top: 15px;
+}
+
 button.btn-success {
     background-color: #303f9f; /* Nova cor */
     color: #ffffff;
@@ -107,25 +121,53 @@ button.btn-success {
 button.btn-success:hover {
     background-color: #1c2b73; /* Tom mais escuro ao passar o mouse */
 }
-/* Efeitos e responsividade */
+
+#btn-loc{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Alinha verticalmente */
         text-align: center;
     }
 
     header h1 {
         font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 
     header a {
-        margin-top: 10px;
         font-size: 0.8rem;
+        /* width: 100%; Botões ocupam largura total */
+        margin: 5px 0;
     }
 
     .container {
-        padding: 15px;
+        padding: 10px; /* Reduz o espaçamento lateral */
     }
 
+    button {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto do botão */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.rem;
+        font-weight: 500;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
 }

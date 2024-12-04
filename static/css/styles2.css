@@ -1,113 +1,131 @@
-/* Corpo e fontes */
+/* Responsividade geral */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
+    font-size: 16px;
 }
 
-/* Header Principal */
-h1 {
-    font-size: 2.5rem;
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    flex-wrap: wrap; /* Ajusta em telas pequenas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adicionado sombreamento */
+}
+
+header h1 {
+    font-size: 1.8rem;
     text-align: center;
-    color: #343a40;
-    margin-bottom: 20px;
-    margin-left: 38%;
-    padding: 10px;
+    flex-grow: 1; /* Ocupa espaço para centralizar */
+    margin: 0; /* Remove margem desnecessária */
+}
+
+header a#header-bt {
+    font-size: 0.9rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Consolidado para evitar repetição */
+}
+
+header a#header-bt:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+/* Container centralizado */
+.container-alertas {
+    max-width: 1200px; /* Define a largura máxima da página */
+    margin: 10px auto; /* Centraliza horizontalmente */
+    padding: 15px; /* Adiciona espaçamento interno */
+    background-color: #ffffff; /* Cor de fundo opcional */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Títulos */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px 0;
 }
 
 /* Mapa */
 #map {
-    height: 400px;
-    border: 2px solid #ced4da;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 300px; /* Tamanho padrão do mapa */
 }
 
 /* Cards de Denúncias */
 .card {
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px 0; /* Espaçamento menor entre os cards */
 }
 
-.card.bg-success {
-    background-color: #28a745 !important;
-    color: white !important;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #343a40;
-}
-
-.card-title.text-white {
-    color: white !important;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #495057;
+#title2{
+    text-align: center;
 }
 
 /* Botões */
 button, a.btn-primary {
-    font-size: 0.9rem;
-    font-weight: bold;
-    width: 150px;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Botões ocupam 100% da largura em telas menores */
+    margin-bottom: 10px; /* Espaçamento entre botões */
 }
 
-button:hover, a.btn-primary:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+/* Responsividade para dispositivos menores que 768px */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header a#header-bt {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    #map {
+        height: 250px;
+    }
+
+    .card {
+        padding: 15px; /* Reduz o padding interno dos cards */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button, a.btn-primary {
+        font-size: 0.8rem; /* Reduz o tamanho da fonte dos botões */
+    }
 }
 
-button.btn-success {
-    background-color: #28a745;
-    color: white;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
+/* Responsividade para dispositivos menores que 480px */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
 
-button.btn-success:hover {
-    background-color: #218838;
-}
+    h1 {
+        font-size: 1.5rem;
+    }
 
-a.btn-primary {
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-}
+    #map {
+        height: 200px; /* Reduz ainda mais o tamanho do mapa */
+    }
 
-a.btn-primary:hover {
-    background-color: #0056b3;
-}
+    .card {
+        padding: 10px;
+    }
 
-button:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-}
-
-/* Seções */
-#denuncias {
-    margin-top: 30px;
-}
-
-#denuncias h2 {
-    font-size: 1.8rem;
-    color: #007bff;
-    margin-bottom: 20px;
-    text-align: center;
+    button, a.btn-primary {
+        padding: 8px 10px;
+        font-size: 0.7rem;
+    }
 }
