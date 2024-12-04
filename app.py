@@ -49,7 +49,6 @@ def login_post():
     
     # Login bem-sucedido
     session['user_id'] = user.id
-    session['show_popup'] = {'type': 'success', 'message': 'Login bem-sucedido!'}
     return redirect(url_for('dashboard'))
 
 @app.route('/dashboard')
